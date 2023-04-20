@@ -1,0 +1,22 @@
+import { type FunctionComponent, type ReactNode } from 'react'
+import { Styled{{name}} } from './{{name}}.styles'
+
+interface {{name}}Props {
+  children?: ReactNode
+  className?: string
+  style?: object
+}
+
+const {{name}} = ({
+  className,
+  children,
+  style,
+}:{{name}}Props) => {
+  return (
+    <Styled{{name}} className={`{{name}} ${className}`} style={style}>
+      {children}
+    </Styled{{name}}>
+  )
+}
+
+export default {{name}}

@@ -1,0 +1,7 @@
+.git
+node_modules
+docker-compose.yml
+docker-compose.production.yml
+Dockerfile
+Dockerfile.production
+README.md
