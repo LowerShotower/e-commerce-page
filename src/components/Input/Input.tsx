@@ -7,6 +7,7 @@ interface InputProps {
   style?: object
   onChange?: (e: ChangeEvent) => void
   value?: string
+  placeholder?: string
 }
 
 const Input = ({ className, style, ...otherProps }: InputProps) => {
