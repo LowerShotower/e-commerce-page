@@ -1,4 +1,5 @@
-import { type FunctionComponent, type ReactNode } from 'react'
+import { type ReactNode } from 'react'
+import Rating from '@mui/material/Rating'
 import {
   Name,
   StyledButton,
@@ -76,7 +77,9 @@ const Teaser = ({
             </StyledTeaserDescriptionListItem>
             <StyledTeaserDescriptionListItem>
               <Name>Rating</Name>
-              <Value>{rating}</Value>
+              <Value>
+                <Rating name="read-only" value={rating} readOnly />
+              </Value>
             </StyledTeaserDescriptionListItem>
           </StyledTeaserDescriptionList>
         </StyledTeaserDescription>
