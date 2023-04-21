@@ -32,6 +32,7 @@ const Teaser = ({
   description,
   sizes,
   colors,
+  rating,
 }: TeaserProps) => {
   const handleClick = () => {
     console.log()
@@ -72,6 +73,10 @@ const Teaser = ({
             <StyledTeaserDescriptionListItem>
               <Name>Sizes</Name>
               <Value>{sizes}</Value>
+            </StyledTeaserDescriptionListItem>
+            <StyledTeaserDescriptionListItem>
+              <Name>Rating</Name>
+              <Value>{rating}</Value>
             </StyledTeaserDescriptionListItem>
           </StyledTeaserDescriptionList>
         </StyledTeaserDescription>

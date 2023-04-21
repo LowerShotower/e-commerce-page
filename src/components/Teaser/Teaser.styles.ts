@@ -67,8 +67,13 @@ export const StyledTeaserDescriptionTitle = styled.h4`
   font-weight: 700;
 `
 export const StyledTeaserDescriptionSubtitle = styled.h5``
-export const StyledTeaserDescriptionText = styled.p``
-export const StyledTeaserDescriptionList = styled.ul``
+export const StyledTeaserDescriptionText = styled.p`
+  flex: 1 1 auto;
+  padding-bottom: ${({ theme }) => theme?.space?.['8']};
+`
+export const StyledTeaserDescriptionList = styled.ul`
+  flex: 0 0 auto;
+`
 export const StyledTeaserDescriptionListItem = styled.li`
   display: flex;
 `
