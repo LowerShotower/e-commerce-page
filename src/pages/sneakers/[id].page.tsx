@@ -1,7 +1,7 @@
 import { Sneaker } from '@/types'
 import db from '../../../db/db'
 import Image from 'next/image'
-
+import Button from '@mui/material/Button'
 interface SneakerProps {
   sneaker: Sneaker
 }
@@ -19,7 +19,7 @@ export default function Sneakers({ sneaker }: SneakerProps) {
             className="object-cover"
           />
         </div>
-        <div className="px-5 w-64 grow-1 shrink-0">
+        <div className="ml-5 px-5 w-64 grow-1 shrink-0">
           <div>
             <span className="text-base font-[700]">Size:</span>{' '}
             {sneaker.sizes.join(', ')}
@@ -28,13 +28,16 @@ export default function Sneakers({ sneaker }: SneakerProps) {
             <span className="text-base font-[700]">Brand:</span> {sneaker.brand}
           </div>
           <div>
-            <span className="text-base font-[700]">Size:</span>{' '}
+            <span className="text-base font-[700]">Description:</span>{' '}
             {sneaker.description}
           </div>
           <div>
             <span className="text-base font-[700]">Size:</span>{' '}
             {sneaker.sizes.join(', ')}
           </div>
+          <Button variant="text" className="mt-6">
+            Add To Cart
+          </Button>
         </div>
       </div>
     </div>

@@ -73,6 +73,8 @@ export default function Home() {
           <div className="flex grow-1 basis-full items-center justify-center">
             <CircularProgress color="inherit" size={50} />
           </div>
+        ) : filteredProducts?.length === 0 ? (
+          <p>There are no products that match the selected category.</p>
         ) : (
           <Teasers className="grow overflow-auto">
             {filteredProducts.map((sneaker: Sneaker) => {
