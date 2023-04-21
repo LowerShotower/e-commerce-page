@@ -17,6 +17,7 @@ import {
   Value,
 } from './Teaser.styles'
 import { Sneaker } from '@/types'
+import ColorCircle from '../ColorCircle/ColorCircle'
 
 interface TeaserProps extends Sneaker {
   children?: ReactNode
@@ -61,9 +62,9 @@ const Teaser = ({
           <StyledTeaserDescriptionList>
             <StyledTeaserDescriptionListItem>
               <Name>Colors</Name>
-              <Value>
+              <Value className="flex">
                 {colors?.map((color: string, index: number) => (
-                  <span key={index}>{color}</span>
+                  <ColorCircle className="ml-1" key={index} color={color} />
                 ))}
               </Value>
             </StyledTeaserDescriptionListItem>
