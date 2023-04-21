@@ -3,14 +3,19 @@ import styled from 'styled-components'
 import Image from 'next/image'
 import { Paper } from '@mui/material'
 
-export const StyledTeaser = styled(Paper)`
+export const StyledTeaser = styled(Paper).attrs({
+  elevation: 0,
+})`
+  cursor: pointer;
   display: flex;
   flex-direction: column;
   border-radius: ${({ theme }) => theme?.borderRadius};
   overflow: hidden;
   align-items: stretch;
-  &:hover {
-    box-shadow: '0px 12px 20px rgba(0,0,0,0.3)';
+  border: 1px solid ${({ theme }) => theme.palette?.common?.frenchGray};
+
+  &.MuiPaper-root:hover {
+    border: 1px solid ${({ theme }) => theme.palette?.primary?.main};
   }
 `
 

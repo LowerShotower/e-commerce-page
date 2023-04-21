@@ -9,9 +9,14 @@ export const StyledTeasers = styled.div`
     padding: 0 10px;
     margin-bottom: 20px;
   }
-  @media (max-width: 768px) {
+  @media (max-width: ${({ theme }) => theme.sizes?.lg}) {
     & > * {
       flex-basis: 50%;
+    }
+  }
+  @media (max-width: ${({ theme }) => theme.sizes?.md}) {
+    & > * {
+      flex-basis: 100%;
     }
   }
 `

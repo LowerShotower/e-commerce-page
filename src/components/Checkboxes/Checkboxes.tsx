@@ -12,8 +12,6 @@ const Checkboxes = ({ options, control, name, render }: Props) => {
     control,
     name,
   })
-  console.log('field', field)
-  // const [value, setValue] = useState(field.value || [])
 
   return (
     <>

@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const StyledHeader = styled.div`
-  padding: ${({ theme: { space } }) => `${space?.['1x']} ${space?.['4x']}`};
+  padding: ${({ theme: { space } }) => `${space?.['1x']} ${space?.['2x']}`};
   background-color: ${({ theme: { palette } }) => palette?.common?.black};
   display: flex;
   align-items: center;

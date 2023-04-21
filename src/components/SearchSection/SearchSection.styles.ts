@@ -1,4 +1,3 @@
-import { StyledInput } from './../Input/Input.styles'
 import styled from 'styled-components'
 
 export const StyledSearchSection = styled.div`

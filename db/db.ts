@@ -1,9 +1,11 @@
+import { FilterEnum } from '@/types'
+
 export default {
   filters: {
-    colors: ['red', 'green', 'white', 'black', 'orange', 'yellow'],
+    [FilterEnum.ByColor]: ['black', 'red', 'white', 'blue', 'gray', 'brown'],
     // brands: ['Vans', 'Nike', 'Adidas', 'Puma', 'Reebok'],
     // sizes: [33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44],
-    prices: [0, 50],
+    [FilterEnum.ByPriceRange]: [0, 50],
   },
   sneakers: [
     {
@@ -11,12 +13,12 @@ export default {
       image:
         'https://images.pexels.com/photos/14525666/pexels-photo-14525666.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
       price: {
-        usd: 100,
+        usd: 90,
       },
       brand: 'Vans',
       name: 'ClassicVN1',
       sizes: [33, 34],
-      colors: ['red', 'green'],
+      colors: ['red', 'white'],
       description: 'description',
       rating: 2,
     },
@@ -27,10 +29,10 @@ export default {
       price: {
         usd: 110,
       },
-      brand: 'Vans',
-      name: 'ClassicVN1',
+      brand: 'Nike',
+      name: 'ClassicNK1',
       sizes: [33, 34],
-      colors: ['white', 'black'],
+      colors: ['white', 'blue'],
       description: 'description',
       rating: 4,
     },
@@ -42,9 +44,9 @@ export default {
         usd: 120,
       },
       brand: 'Vans',
-      name: 'ClassicVN1',
+      name: 'ClassicVN2',
       sizes: [33, 34],
-      colors: ['orange', 'yellow'],
+      colors: ['brown', 'gray'],
       description: 'description',
       rating: 3,
     },
@@ -53,10 +55,10 @@ export default {
       image:
         'https://images.pexels.com/photos/1478442/pexels-photo-1478442.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
       price: {
-        usd: 100,
+        usd: 800,
       },
-      brand: 'Vans',
-      name: 'ClassicVN1',
+      brand: 'Puma',
+      name: 'ClassicPM1',
       sizes: [33, 34],
       colors: ['gray', 'white'],
       description: 'description',
@@ -69,10 +71,10 @@ export default {
       price: {
         usd: 10,
       },
-      brand: 'Vans',
-      name: 'ClassicVN1',
+      brand: 'Puma',
+      name: 'ClassicPM2',
       sizes: [33, 34],
-      colors: ['blue', 'orange'],
+      colors: ['black', 'red'],
       description: 'description',
       rating: 4,
     },
@@ -84,7 +86,7 @@ export default {
         usd: 130,
       },
       brand: 'Vans',
-      name: 'ClassicVN1',
+      name: 'ClassicVN3',
       sizes: [33, 34],
       colors: ['gray', 'black'],
       description: 'description',
@@ -95,12 +97,12 @@ export default {
       image:
         'https://images.pexels.com/photos/2529159/pexels-photo-2529159.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
       price: {
-        usd: 100,
+        usd: 70,
       },
       brand: 'Vans',
       name: 'ClassicVN1',
       sizes: [33, 34],
-      colors: ['green', 'blue'],
+      colors: ['brown', 'black'],
       description: 'description',
       rating: 5,
     },
@@ -109,12 +111,12 @@ export default {
       image:
         'https://images.pexels.com/photos/14525666/pexels-photo-14525666.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
       price: {
-        usd: 100,
+        usd: 60,
       },
-      brand: 'Vans',
-      name: 'ClassicVN1',
+      brand: 'Adidas',
+      name: 'ClassicAD1',
       sizes: [33, 34],
-      colors: ['red', 'green'],
+      colors: ['red', 'white'],
       description: 'description',
       rating: 2,
     },
@@ -137,12 +139,12 @@ export default {
       image:
         'https://images.pexels.com/photos/1598505/pexels-photo-1598505.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
       price: {
-        usd: 120,
+        usd: 65,
       },
-      brand: 'Vans',
-      name: 'ClassicVN1',
+      brand: 'Reebok',
+      name: 'ClassicRB1',
       sizes: [33, 34],
-      colors: ['orange', 'yellow'],
+      colors: ['blue', 'red'],
       description: 'description',
       rating: 3,
     },
@@ -151,7 +153,7 @@ export default {
       image:
         'https://images.pexels.com/photos/1478442/pexels-photo-1478442.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
       price: {
-        usd: 100,
+        usd: 75,
       },
       brand: 'Vans',
       name: 'ClassicVN1',
@@ -165,12 +167,12 @@ export default {
       image:
         'https://images.pexels.com/photos/14525666/pexels-photo-14525666.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
       price: {
-        usd: 10,
+        usd: 15,
       },
       brand: 'Vans',
       name: 'ClassicVN1',
       sizes: [33, 34],
-      colors: ['blue', 'orange'],
+      colors: ['blue', 'black'],
       description: 'description',
       rating: 4,
     },
@@ -179,7 +181,7 @@ export default {
       image:
         'https://images.pexels.com/photos/1240892/pexels-photo-1240892.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
       price: {
-        usd: 130,
+        usd: 13,
       },
       brand: 'Vans',
       name: 'ClassicVN1',
@@ -193,12 +195,12 @@ export default {
       image:
         'https://images.pexels.com/photos/2529159/pexels-photo-2529159.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
       price: {
-        usd: 100,
+        usd: 10,
       },
       brand: 'Vans',
       name: 'ClassicVN1',
       sizes: [33, 34],
-      colors: ['green', 'blue'],
+      colors: ['red', 'blue'],
       description: 'description',
       rating: 5,
     },

@@ -1,5 +1,5 @@
 import { useEffect, type ReactNode, ChangeEvent } from 'react'
-import { Controller, useForm } from 'react-hook-form'
+import { Controller, useForm, useWatch } from 'react-hook-form'
 import {
   StyledFilterSection,
   StyledFilterSectionContent,
@@ -9,15 +9,16 @@ import Slider from '@mui/material/Slider'
 import Checkbox from '@mui/material/Checkbox'
 import FormControlLabel from '@mui/material/FormControlLabel'
 import Checkboxes from '../Checkboxes/Checkboxes'
-import { Filters } from '@/types'
+import { FilterEnum, Filters } from '@/types'
 
 interface FilterSectionProps {
   children?: ReactNode
   className?: string
   style?: object
   price?: number
-  onSubmit?: (data: Partial<Filters>) => void
-  onChange?: (data: Partial<Filters>) => void
+  onSubmit?: (filters: Partial<Filters>) => void
+  onChange?: (filters: Partial<Filters>) => void
+  defaultValue?: Partial<Filters>
 }
 
 const colorOptions = [
@@ -29,19 +30,19 @@ const colorOptions = [
   { label: 'Brown', value: 'brown' },
 ]
 
-const FilterSection = ({ className, style, onSubmit }: FilterSectionProps) => {
-  const { control, handleSubmit } = useForm({
-    defaultValues: {
-      prices: [0, 20],
-      colors: [],
-    },
+const FilterSection = ({
+  className,
+  style,
+  onChange,
+  defaultValue,
+}: FilterSectionProps) => {
+  const { control } = useForm({
+    defaultValues: defaultValue,
   })
-
+  const watchAll = useWatch({ control })
   useEffect(() => {
-    handleSubmit((data: Partial<Filters>) => {
-      onSubmit?.(data)
-    })
-  })
+    onChange?.(watchAll)
+  }, [watchAll])
 
   return (
     <StyledFilterSection className={`FilterSection ${className}`} style={style}>
@@ -50,12 +51,14 @@ const FilterSection = ({ className, style, onSubmit }: FilterSectionProps) => {
           <p>Price</p>
           <Controller
             control={control}
-            name="prices"
-            render={({ field: { onChange, value } }) => (
+            name={FilterEnum.ByPriceRange}
+            render={({ field }) => (
               <Slider
                 getAriaLabel={() => 'Price range'}
-                value={value}
-                onChange={onChange}
+                value={field.value}
+                onChange={(e, v) => {
+                  field.onChange(v as number[])
+                }}
                 valueLabelDisplay="auto"
                 getAriaValueText={(v) => v.toString()}
               />
@@ -65,7 +68,7 @@ const FilterSection = ({ className, style, onSubmit }: FilterSectionProps) => {
         <StyledFilterSectionContentItem>
           <p>Colors</p>
           <Checkboxes
-            name="colors"
+            name={FilterEnum.ByColor}
             control={control}
             options={colorOptions}
             render={({ option, field }) => {

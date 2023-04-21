@@ -1,34 +1,39 @@
-import { FilterEnum, SortEnum } from '@/types'
+import { FilterEnum, Filters, SortEnum } from '@/types'
+import { intersection } from 'lodash'
 
-export const sort = {
+export const sortFuncs = {
   [SortEnum.PopularFirst]: (a, b) => b.rating - a.rating,
   [SortEnum.UnpopularFirst]: (a, b) => a.rating - b.rating,
-  [SortEnum.PriceLowToHigh]: (a, b) => a.price.usd - b.price.usd,
-  [SortEnum.PriceHighToLow]: (a, b) => b.price.usd - a.price.usd,
+  [SortEnum.PriceLowToHigh]: (a, b) => a.price?.usd - b.price?.usd,
+  [SortEnum.PriceHighToLow]: (a, b) => {
+    return b?.price.usd - a?.price.usd
+  },
 }
 
-export const filter = {
-  [FilterEnum.AllBrands]: (sneakers) => sneakers,
-  [FilterEnum.AllSizes]: (sneakers) => sneakers,
-  [FilterEnum.AllColors]: (sneakers) => sneakers,
-  [FilterEnum.AllPrices]: (sneakers) => sneakers,
-  [FilterEnum.AllRatings]: (sneakers) => sneakers,
-  [FilterEnum.ByBrand]: (sneakers, brand) =>
-    sneakers.filter((s) => s.brand === brand),
-  [FilterEnum.BySize]: (sneakers, size) =>
-    sneakers.filter((s) => s.sizes.includes(size)),
-  [FilterEnum.ByColor]: (sneakers, color) =>
-    sneakers.filter((s) => s.colors?.includes(color)),
-  [FilterEnum.ByPrice]: (sneakers, price) =>
-    sneakers.filter((s) => s.price.usd === price),
-  [FilterEnum.ByRating]: (sneakers, rating) =>
-    sneakers.filter((s) => s.rating === rating),
-  [FilterEnum.BySearch]: (sneakers, search) => {
-    const searchRegex = new RegExp(search, 'i')
-    return sneakers.filter((s) => searchRegex.test(s.name))
-  },
-  [FilterEnum.ByPriceRange]: (sneakers, priceRange) => {
+export const filterFunc = {
+  [FilterEnum.ByColor]: (sneaker, colors) =>
+    !!intersection(sneaker.colors, colors).length,
+  [FilterEnum.ByPriceRange]: (sneaker, priceRange) => {
     const [min, max] = priceRange
-    return sneakers.filter((s) => s.price.usd >= min && s.price.usd <= max)
+    return sneaker.price.usd >= min && sneaker.price.usd <= max
   },
+  [FilterEnum.BySearch]: (sneaker, search) => {
+    if (!search) return true
+    const searchRegex = new RegExp(search, 'i')
+    return searchRegex.test(sneaker.name)
+  },
+}
+
+export const filterCheck = (filters: Partial<Filters>) => (sneaker) => {
+  return Object.keys(filters).every((key) => {
+    switch (key) {
+      case FilterEnum.ByPriceRange:
+        return filterFunc[key](sneaker, filters[key])
+      case FilterEnum.ByColor:
+        return filterFunc[key](sneaker, filters[key])
+      case FilterEnum.BySearch:
+        return filterFunc[key](sneaker, filters[key])
+      default:
+    }
+  })
 }

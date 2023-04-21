@@ -33,7 +33,7 @@ const Header = ({ className, style }: HeaderProps) => {
       <StyledLinks>
         <Link
           href="./"
-          className="flex text-slate-100 p-5 text-lg items-center text-xl hover:bg-gray-900"
+          className="flex text-slate-100 p-1 text-lg items-center text-xl hover:bg-gray-900"
         >
           <LocalMallOutlinedIcon /> <span className="pl-2">Cart</span>
         </Link>

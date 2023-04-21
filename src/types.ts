@@ -1,3 +1,5 @@
+import db from 'db/db'
+
 export enum SortEnum {
   PopularFirst = 'popular-first',
   UnpopularFirst = 'unpopular-first',
@@ -35,10 +37,11 @@ export interface Sneaker {
 }
 
 export interface Filters {
-  colors: string[]
-  prices: number[]
-  brands: string[]
-  sizes: number[]
+  [FilterEnum.ByColor]: (typeof db.filters)[FilterEnum.ByColor][]
+  [FilterEnum.ByPriceRange]: number[]
+  [FilterEnum.BySearch]: string
+  [FilterEnum.ByBrand]: string[]
+  [FilterEnum.BySize]: number[]
 }
 
 export type ButtonVariant = 'text' | 'outlined' | 'contained'

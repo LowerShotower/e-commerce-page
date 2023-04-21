@@ -18,7 +18,7 @@ const SearchSection = ({ className, style, onChange }: SearchSectionProps) => {
   }
   return (
     <StyledSearchSection className={`SearchSection ${className}`} style={style}>
-      <StyledInput value={search} className="w-full" onChange={handleChange} />
+      <Input value={search} className="w-full" onChange={handleChange} />
     </StyledSearchSection>
   )
 }

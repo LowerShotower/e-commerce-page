@@ -1,11 +1,14 @@
 import FilterSection from '@/components/FilterSection/FilterSection'
 import Teasers from '@/components/Teasers/Teasers'
 import Teaser from '@/components/Teaser/Teaser'
-import { Sneaker } from '@/types'
+import { FilterEnum, Sneaker, SortEnum } from '@/types'
 import OrderingSection from '@/components/OrderingSection/OrderingSection'
 import SearchSection from '@/components/SearchSection/SearchSection'
 import useSWR from 'swr'
 import CircularProgress from '@mui/material/CircularProgress'
+import { filterCheck, sortFuncs } from '@/utils'
+import { useCallback, useState } from 'react'
+import { debounce } from 'lodash'
 
 const fetcher = async (url: string) => {
   const res = await fetch(url, {
@@ -23,37 +26,55 @@ const fetcher = async (url: string) => {
 }
 
 export default function Home() {
-  const handleOrderingChange = (data) => {
-    console.log('handleOrderingChange', data)
-  }
-
-  const handleSearchChange = (data) => {
-    console.log('handleSearchChange', data)
-  }
-
-  const handleFilterChange = (data) => {
-    console.log('handleFilterChage', data)
-  }
-
+  const [search, setSearch] = useState<string>('')
+  const [filters, setFilters] = useState<Partial<Record<FilterEnum, any>>>({
+    [FilterEnum.ByPriceRange]: [0, 90],
+    [FilterEnum.ByColor]: ['black', 'red', 'white', 'blue', 'gray', 'brown'],
+  })
   const { data, error, isLoading } = useSWR(() => `/api/sneakers`, fetcher)
-  if (error) return <div>{error.message}</div>
+  const [sortMethod, setSortMethod] = useState()
 
+  const debouncedSearch = useCallback(
+    debounce((value) => {
+      setSearch(value)
+    }, 100),
+    [setSearch]
+  )
+
+  const handleOrderingChange = (sortFuncName) => {
+    setSortMethod(sortFuncName)
+  }
+
+  const handleSearchChange = (value) => {
+    debouncedSearch(value)
+  }
+
+  const handleFilterChange = (filters) => {
+    setFilters(filters)
+  }
+
+  const filteredProducts = data
+    ?.filter(filterCheck({ [FilterEnum.BySearch]: search, ...filters }))
+    .sort(sortMethod && sortFuncs[sortMethod])
+  if (error) return <div>{error.message}</div>
   return (
     <>
       <SearchSection onChange={handleSearchChange} />
       <OrderingSection onChange={handleOrderingChange} />
       <div className="flex">
-        <FilterSection
-          className="w-60 shrink-0 grow-0"
-          onChange={handleFilterChange}
-        />
+        <div className="w-60 shrink-0 grow-0">
+          <FilterSection onChange={handleFilterChange} defaultValue={filters} />
+          {filteredProducts?.length !== undefined && (
+            <p className="px-0">Total products: {filteredProducts?.length}</p>
+          )}
+        </div>
         {isLoading ? (
           <div className="flex grow-1 basis-full items-center justify-center">
             <CircularProgress color="inherit" size={50} />
           </div>
         ) : (
           <Teasers className="grow overflow-auto">
-            {data?.map((sneaker: Sneaker) => {
+            {filteredProducts.map((sneaker: Sneaker) => {
               return (
                 <div key={sneaker.id}>
                   <Teaser
