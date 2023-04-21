@@ -63,10 +63,12 @@ export default function Home() {
       <SearchSection onChange={handleSearchChange} />
       <OrderingSection onChange={handleOrderingChange} />
       <div className="flex flex-col md:flex-row">
-        <div className="w-60 shrink-0 grow-0">
+        <div className="md:w-60 md:pr-5 shrink-0 grow-0">
           <FilterSection onChange={handleFilterChange} defaultValue={filters} />
           {filteredProducts?.length !== undefined && (
-            <p className="px-0">Total products: {filteredProducts?.length}</p>
+            <p className="px-0 pb-3">
+              Total products: {filteredProducts?.length}
+            </p>
           )}
         </div>
         {isLoading ? (
@@ -74,7 +76,7 @@ export default function Home() {
             <CircularProgress color="inherit" size={50} />
           </div>
         ) : filteredProducts?.length === 0 ? (
-          <p>There are no products that match the selected category.</p>
+          <p>There are no products that match the selected parameters.</p>
         ) : (
           <Teasers className="grow overflow-auto">
             {filteredProducts.map((sneaker: Sneaker) => {

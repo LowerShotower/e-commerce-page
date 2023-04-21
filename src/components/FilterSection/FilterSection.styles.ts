@@ -6,7 +6,6 @@ export const StyledFilterSection = styled.form`
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  padding-right: ${({ theme }) => theme?.space?.['1x']};
 `
 
 export const StyledFilterSectionTitle = styled.h3``
