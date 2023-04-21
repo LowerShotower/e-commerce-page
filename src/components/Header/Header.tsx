@@ -18,7 +18,7 @@ interface HeaderProps {
 const Header = ({ className, style }: HeaderProps) => {
   return (
     <StyledHeader className={`Header ${className}`} style={style}>
-      <Link href="./">
+      <Link href="/">
         <StyledLogo>
           <Image
             src="/assets/images/seaker6.png"

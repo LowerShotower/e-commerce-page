@@ -9,6 +9,7 @@ import CircularProgress from '@mui/material/CircularProgress'
 import { filterCheck, sortFuncs } from '@/utils'
 import { useCallback, useState } from 'react'
 import { debounce } from 'lodash'
+import Link from 'next/link'
 
 const fetcher = async (url: string) => {
   const res = await fetch(url, {
@@ -76,7 +77,7 @@ export default function Home() {
           <Teasers className="grow overflow-auto">
             {filteredProducts.map((sneaker: Sneaker) => {
               return (
-                <div key={sneaker.id}>
+                <Link href={'/sneakers/1'} key={sneaker.id}>
                   <Teaser
                     className="h-full"
                     id={sneaker.id}
@@ -89,7 +90,7 @@ export default function Home() {
                     description={sneaker.description}
                     rating={sneaker.rating}
                   />
-                </div>
+                </Link>
               )
             })}
           </Teasers>
