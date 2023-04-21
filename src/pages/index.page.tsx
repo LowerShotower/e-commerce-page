@@ -77,7 +77,10 @@ export default function Home() {
           <Teasers className="grow overflow-auto">
             {filteredProducts.map((sneaker: Sneaker) => {
               return (
-                <Link href={'/sneakers/1'} key={sneaker.id}>
+                <Link
+                  href={`/sneakers/${sneaker.id.toString()}`}
+                  key={sneaker.id}
+                >
                   <Teaser
                     className="h-full"
                     id={sneaker.id}

@@ -206,5 +206,77 @@ export default {
       description: 'Lorem ipsum dolor sit amet, consectetur .',
       rating: 5,
     },
+
+    {
+      id: 100,
+      image:
+        'https://images.pexels.com/photos/1598505/pexels-photo-1598505.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+      price: {
+        usd: 65,
+      },
+      brand: 'Reebok',
+      name: 'ClassicRB1',
+      sizes: [33, 34],
+      colors: ['blue', 'red'],
+      description: 'Lorem ipsum dolor sit amet, consectetu.',
+      rating: 3,
+    },
+    {
+      id: 110,
+      image:
+        'https://images.pexels.com/photos/1478442/pexels-photo-1478442.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+      price: {
+        usd: 75,
+      },
+      brand: 'Vans',
+      name: 'ClassicVN1',
+      sizes: [33, 34],
+      colors: ['gray', 'white'],
+      description: 'description',
+      rating: 3,
+    },
+    {
+      id: 120,
+      image:
+        'https://images.pexels.com/photos/14525666/pexels-photo-14525666.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+      price: {
+        usd: 15,
+      },
+      brand: 'Vans',
+      name: 'ClassicVN1',
+      sizes: [33, 34],
+      colors: ['blue', 'black'],
+      description: 'description',
+      rating: 4,
+    },
+    {
+      id: 130,
+      image:
+        'https://images.pexels.com/photos/1240892/pexels-photo-1240892.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+      price: {
+        usd: 13,
+      },
+      brand: 'Vans',
+      name: 'ClassicVN1',
+      sizes: [33, 34],
+      colors: ['gray', 'black'],
+      description:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et imperdiet est, non vulputate mauris.',
+      rating: 3,
+    },
+    {
+      id: 140,
+      image:
+        'https://images.pexels.com/photos/2529159/pexels-photo-2529159.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+      price: {
+        usd: 10,
+      },
+      brand: 'Vans',
+      name: 'ClassicVN1',
+      sizes: [33, 34],
+      colors: ['red', 'blue'],
+      description: 'Lorem ipsum dolor sit amet, consectetur .',
+      rating: 5,
+    },
   ],
 }
