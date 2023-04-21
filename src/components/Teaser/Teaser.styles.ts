@@ -69,9 +69,16 @@ export const StyledTeaserDescriptionTitle = styled.h4`
 export const StyledTeaserDescriptionSubtitle = styled.h5``
 export const StyledTeaserDescriptionText = styled.p``
 export const StyledTeaserDescriptionList = styled.ul``
-export const StyledTeaserDescriptionListItem = styled.li``
-export const Name = styled.span``
-export const Value = styled.span``
+export const StyledTeaserDescriptionListItem = styled.li`
+  display: flex;
+`
+export const Name = styled.p`
+  flex: 1 1 auto;
+  font-weight: 700;
+`
+export const Value = styled.p`
+  flex: 0 1 auto;
+`
 export const StyledTeaserActions = styled.div`
   display: flex;
   justify-content: flex-end;
