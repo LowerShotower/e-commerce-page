@@ -74,7 +74,7 @@ const Teaser = ({
             </StyledTeaserDescriptionListItem>
             <StyledTeaserDescriptionListItem>
               <Name>Sizes</Name>
-              <Value>{sizes}</Value>
+              <Value>{sizes.join(', ')}</Value>
             </StyledTeaserDescriptionListItem>
             <StyledTeaserDescriptionListItem>
               <Name>Rating</Name>
