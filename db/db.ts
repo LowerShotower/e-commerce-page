@@ -61,7 +61,7 @@ export default {
       name: 'ClassicPM1',
       sizes: [33, 34],
       colors: ['gray', 'white'],
-      description: 'description',
+      description: 'Lorem ipsum dolor sit amet.',
       rating: 3,
     },
     {
@@ -117,7 +117,8 @@ export default {
       name: 'ClassicAD1',
       sizes: [33, 34],
       colors: ['red', 'white'],
-      description: 'description',
+      description:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et .',
       rating: 2,
     },
     {
@@ -145,7 +146,7 @@ export default {
       name: 'ClassicRB1',
       sizes: [33, 34],
       colors: ['blue', 'red'],
-      description: 'description',
+      description: 'Lorem ipsum dolor sit amet, consectetu.',
       rating: 3,
     },
     {
@@ -187,7 +188,8 @@ export default {
       name: 'ClassicVN1',
       sizes: [33, 34],
       colors: ['gray', 'black'],
-      description: 'description',
+      description:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et imperdiet est, non vulputate mauris.',
       rating: 3,
     },
     {
@@ -201,7 +203,7 @@ export default {
       name: 'ClassicVN1',
       sizes: [33, 34],
       colors: ['red', 'blue'],
-      description: 'description',
+      description: 'Lorem ipsum dolor sit amet, consectetur .',
       rating: 5,
     },
   ],

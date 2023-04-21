@@ -45,6 +45,10 @@ export const StyledPlaceholderImage = styled(Image).attrs({
 
 export const StyledTeaserContent = styled.div`
   padding: ${({ theme }) => theme?.space?.['1x']};
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: stretch;
+  flex: 1 1 auto;
 `
 
 export const StyledTeaserTitle = styled.h4`
@@ -55,6 +59,7 @@ export const StyledTeaserDescription = styled.div`
   display: flex;
   flex-direction: column;
   align-items: stretch;
+  flex: 1 1 auto;
 `
 
 export const StyledTeaserDescriptionTitle = styled.h4`
@@ -70,6 +75,7 @@ export const Value = styled.span``
 export const StyledTeaserActions = styled.div`
   display: flex;
   justify-content: flex-end;
+  flex: 0 0 auto;
 `
 
 export const StyledButton = styled(Button)`

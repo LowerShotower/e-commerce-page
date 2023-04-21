@@ -37,7 +37,7 @@ export default function Home() {
   const debouncedSearch = useCallback(
     debounce((value) => {
       setSearch(value)
-    }, 100),
+    }, 500),
     [setSearch]
   )
 
@@ -61,7 +61,7 @@ export default function Home() {
     <>
       <SearchSection onChange={handleSearchChange} />
       <OrderingSection onChange={handleOrderingChange} />
-      <div className="flex">
+      <div className="flex flex-col md:flex-row">
         <div className="w-60 shrink-0 grow-0">
           <FilterSection onChange={handleFilterChange} defaultValue={filters} />
           {filteredProducts?.length !== undefined && (
@@ -78,6 +78,7 @@ export default function Home() {
               return (
                 <div key={sneaker.id}>
                   <Teaser
+                    className="h-full"
                     id={sneaker.id}
                     image={sneaker.image}
                     name={sneaker.name}

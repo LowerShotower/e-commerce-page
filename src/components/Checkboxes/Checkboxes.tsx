@@ -1,8 +1,8 @@
-import { useController } from 'react-hook-form'
+import { Control, useController } from 'react-hook-form'
 
 interface Props {
   options: { label: string; value: string }[]
-  control: any
+  control: Control
   name: string
   render: (props: any) => JSX.Element
 }
