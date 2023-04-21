@@ -1,12 +1,13 @@
 import { type ReactNode } from 'react'
 import { StyledButton } from './Button.styles'
+import { ButtonVariant } from '@/types'
 
 interface ButtonProps {
   children?: ReactNode
   className?: string
   style?: object
   onClick?: () => void
-  variant?: 'text' | 'outlined' | 'contained'
+  variant?: ButtonVariant
 }
 
 const Button = ({ className, children, style, ...otherProps }: ButtonProps) => {

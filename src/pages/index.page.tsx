@@ -6,7 +6,6 @@ import OrderingSection from '@/components/OrderingSection/OrderingSection'
 import SearchSection from '@/components/SearchSection/SearchSection'
 import useSWR from 'swr'
 import CircularProgress from '@mui/material/CircularProgress'
-import { Paper } from '@mui/material'
 
 const fetcher = async (url: string) => {
   const res = await fetch(url, {
@@ -25,23 +24,29 @@ const fetcher = async (url: string) => {
 
 export default function Home() {
   const handleOrderingChange = (data) => {
-    console.log('sdf', data)
+    console.log('handleOrderingChange', data)
+  }
+
+  const handleSearchChange = (data) => {
+    console.log('handleSearchChange', data)
+  }
+
+  const handleFilterChange = (data) => {
+    console.log('handleFilterChage', data)
   }
 
   const { data, error, isLoading } = useSWR(() => `/api/sneakers`, fetcher)
-  console.log('LOADING', isLoading)
   if (error) return <div>{error.message}</div>
-
-  const handleSearchChange = (data) => {
-    console.log(data)
-  }
 
   return (
     <>
       <SearchSection onChange={handleSearchChange} />
-      <OrderingSection onOrderingChange={handleOrderingChange} />
+      <OrderingSection onChange={handleOrderingChange} />
       <div className="flex">
-        <FilterSection className="w-60 shrink-0 grow-0" />
+        <FilterSection
+          className="w-60 shrink-0 grow-0"
+          onChange={handleFilterChange}
+        />
         {isLoading ? (
           <div className="flex grow-1 basis-full items-center justify-center">
             <CircularProgress color="inherit" size={50} />

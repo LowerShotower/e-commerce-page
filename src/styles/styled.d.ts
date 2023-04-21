@@ -9,6 +9,7 @@ declare module 'styled-components' {
   export interface DefaultTheme {
     name: string
     borderRadius: string
+    borderRadiusSmall: string
     bodyColor: string
     textColor: string
     palette: {

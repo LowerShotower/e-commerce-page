@@ -23,6 +23,7 @@ export const StyledFilterSectionContentItem = styled.div`
   align-items: stretch;
   background: ${({ theme }) => theme?.palette?.common.azure};
   margin-bottom: ${({ theme }) => `${theme?.space?.['1x']}`};
+  border-radius: ${({ theme }) => theme?.borderRadius};
 `
 
 export const StyledColors = styled.div``

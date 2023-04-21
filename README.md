@@ -14,3 +14,5 @@ Store was not installed as it's not needed for the demo
 As everything was uploaded to the Vercel, there is no need in docker
 
 I chose to use mocked db file, not mongo db
+
+Web Page Demo Example: https://e-commerce-page-rosy.vercel.app/

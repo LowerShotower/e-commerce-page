@@ -7,17 +7,16 @@ interface OrderingSectionProps {
   children?: ReactNode
   className?: string
   style?: object
-  onOrderingChange: (type: SortEnum) => void
+  onChange: (type: SortEnum) => void
 }
 
 const OrderingSection = ({
   className,
   style,
-  onOrderingChange,
+  onChange,
 }: OrderingSectionProps) => {
   const handleSortButtonClick = (type: SortEnum) => () => {
-    console.log(type)
-    onOrderingChange(type)
+    onChange(type)
   }
   return (
     <StyledOrderingSection

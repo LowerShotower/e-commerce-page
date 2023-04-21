@@ -40,3 +40,5 @@ export interface Filters {
   brands: string[]
   sizes: number[]
 }
+
+export type ButtonVariant = 'text' | 'outlined' | 'contained'

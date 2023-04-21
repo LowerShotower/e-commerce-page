@@ -9,13 +9,15 @@ import Slider from '@mui/material/Slider'
 import Checkbox from '@mui/material/Checkbox'
 import FormControlLabel from '@mui/material/FormControlLabel'
 import Checkboxes from '../Checkboxes/Checkboxes'
+import { Filters } from '@/types'
 
 interface FilterSectionProps {
   children?: ReactNode
   className?: string
   style?: object
   price?: number
-  onSubmit?: (data: any) => void
+  onSubmit?: (data: Partial<Filters>) => void
+  onChange?: (data: Partial<Filters>) => void
 }
 
 const colorOptions = [
@@ -28,20 +30,19 @@ const colorOptions = [
 ]
 
 const FilterSection = ({ className, style, onSubmit }: FilterSectionProps) => {
-  const { control, handleSubmit, getValues } = useForm({
+  const { control, handleSubmit } = useForm({
     defaultValues: {
-      price: [0, 20],
+      prices: [0, 20],
       colors: [],
-      sizes: [],
     },
   })
 
   useEffect(() => {
-    handleSubmit((data: any) => {
+    handleSubmit((data: Partial<Filters>) => {
       onSubmit?.(data)
     })
   })
-  console.log(getValues())
+
   return (
     <StyledFilterSection className={`FilterSection ${className}`} style={style}>
       <StyledFilterSectionContent>
@@ -49,7 +50,7 @@ const FilterSection = ({ className, style, onSubmit }: FilterSectionProps) => {
           <p>Price</p>
           <Controller
             control={control}
-            name="price"
+            name="prices"
             render={({ field: { onChange, value } }) => (
               <Slider
                 getAriaLabel={() => 'Price range'}
@@ -63,28 +64,11 @@ const FilterSection = ({ className, style, onSubmit }: FilterSectionProps) => {
         </StyledFilterSectionContentItem>
         <StyledFilterSectionContentItem>
           <p>Colors</p>
-          {/* <Controller
-            name="colors"
-            control={control}
-            defaultValue={[]}
-            render={({ field: props }) => (
-              <>
-                <Checkbox
-                  {...props}
-                  onChange={(e) => props.onChange(e.target.checked)}
-                />
-                <Checkbox
-                  {...props}
-                  onChange={(e) => props.onChange(e.target.checked)}
-                />
-              </>
-            )}
-          /> */}
           <Checkboxes
             name="colors"
             control={control}
             options={colorOptions}
-            render={({ options, option, index, field }) => {
+            render={({ option, field }) => {
               const fieldValue = field.value
               return (
                 <FormControlLabel
@@ -99,9 +83,7 @@ const FilterSection = ({ className, style, onSubmit }: FilterSectionProps) => {
                         const updatedValue = e.target.checked
                           ? [...fieldValue, option.value]
                           : fieldValue.filter((v: string) => v !== option.value)
-                        console.log('updatedValue', updatedValue)
                         field.onChange(updatedValue)
-                        // setValue(updatedValue)
                       }}
                     />
                   }

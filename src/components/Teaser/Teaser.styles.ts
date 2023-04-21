@@ -6,11 +6,11 @@ import { Paper } from '@mui/material'
 export const StyledTeaser = styled(Paper)`
   display: flex;
   flex-direction: column;
-  border-radius: 8px;
+  border-radius: ${({ theme }) => theme?.borderRadius};
   overflow: hidden;
   align-items: stretch;
   &:hover {
-    box-shadow: '0px 10px 20px rgba(0,0,0,0.2)';
+    box-shadow: '0px 12px 20px rgba(0,0,0,0.3)';
   }
 `
 
