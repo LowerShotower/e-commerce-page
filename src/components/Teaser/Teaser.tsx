@@ -25,17 +25,17 @@ interface TeaserProps extends Sneaker {
 
 const Teaser = ({
   className,
-  children,
   style,
   image,
   price,
-  brand,
   name,
   description,
   sizes,
   colors,
 }: TeaserProps) => {
-  const handleClick = () => {}
+  const handleClick = () => {
+    console.log()
+  }
   return (
     <StyledTeaser className={`Teaser ${className}`} style={style}>
       <StyledTeaserImageWrapper>
@@ -60,8 +60,8 @@ const Teaser = ({
             <StyledTeaserDescriptionListItem>
               <Name>Colors</Name>
               <Value>
-                {colors?.map((color: string) => (
-                  <span>{color}</span>
+                {colors?.map((color: string, index: number) => (
+                  <span key={index}>{color}</span>
                 ))}
               </Value>
             </StyledTeaserDescriptionListItem>

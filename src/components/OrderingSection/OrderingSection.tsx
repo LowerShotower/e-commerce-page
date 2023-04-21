@@ -1,4 +1,4 @@
-import { type FunctionComponent, type ReactNode } from 'react'
+import { type ReactNode } from 'react'
 import { StyledOrderingSection } from './OrderingSection.styles'
 import Button from '../Button/Button'
 import { SortEnum } from '@/types'
@@ -12,7 +12,6 @@ interface OrderingSectionProps {
 
 const OrderingSection = ({
   className,
-  children,
   style,
   onOrderingChange,
 }: OrderingSectionProps) => {

@@ -1,10 +1,9 @@
-import { type FunctionComponent, type ReactNode } from 'react'
+import { type ReactNode } from 'react'
 import LocalMallOutlinedIcon from '@mui/icons-material/LocalMallOutlined'
 import {
   StyledHeader,
   StyledLinks,
   StyledLogo,
-  StyledLogoSemiText,
   StyledLogoText,
 } from './Header.styles'
 import Link from 'next/link'

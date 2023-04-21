@@ -1,10 +1,5 @@
-import { type FunctionComponent, type ReactNode } from 'react'
+import { type ReactNode } from 'react'
 import { StyledButton } from './Button.styles'
-import { ExtendButtonBase } from '@mui/material/ButtonBase'
-import {
-  ButtonPropsVariantOverrides,
-  ButtonTypeMap,
-} from '@mui/material/Button'
 
 interface ButtonProps {
   children?: ReactNode

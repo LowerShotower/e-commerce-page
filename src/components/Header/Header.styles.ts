@@ -1,12 +1,12 @@
 import styled from 'styled-components'
-// px-5 flex flex-row justify-between items-center w-screen bg-gray-950
+
 export const StyledHeader = styled.div`
   padding: ${({ theme: { space } }) => `${space?.['1x']} ${space?.['4x']}`};
   background-color: ${({ theme: { palette } }) => palette?.common?.black};
   display: flex;
   align-items: center;
   justify-content: space-between;
-  z-index: 1;
+  z-index: 10;
 `
 
 export const StyledLogo = styled.div`

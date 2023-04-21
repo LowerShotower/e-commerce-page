@@ -1,9 +1,4 @@
-import {
-  useEffect,
-  type FunctionComponent,
-  type ReactNode,
-  ChangeEvent,
-} from 'react'
+import { useEffect, type ReactNode, ChangeEvent } from 'react'
 import { Controller, useForm } from 'react-hook-form'
 import {
   StyledFilterSection,
@@ -32,13 +27,8 @@ const colorOptions = [
   { label: 'Brown', value: 'brown' },
 ]
 
-const FilterSection = ({
-  className,
-  style,
-  price,
-  onSubmit,
-}: FilterSectionProps) => {
-  const { formState, control, handleSubmit, getValues } = useForm({
+const FilterSection = ({ className, style, onSubmit }: FilterSectionProps) => {
+  const { control, handleSubmit, getValues } = useForm({
     defaultValues: {
       price: [0, 20],
       colors: [],
@@ -60,11 +50,7 @@ const FilterSection = ({
           <Controller
             control={control}
             name="price"
-            render={({
-              field: { onChange, onBlur, value, name, ref },
-              fieldState: { invalid, isTouched, isDirty, error },
-              formState,
-            }) => (
+            render={({ field: { onChange, value } }) => (
               <Slider
                 getAriaLabel={() => 'Price range'}
                 value={value}

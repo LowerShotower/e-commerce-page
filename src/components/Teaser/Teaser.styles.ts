@@ -1,12 +1,17 @@
 import Button from '@/components/Button/Button'
 import styled from 'styled-components'
 import Image from 'next/image'
-export const StyledTeaser = styled.div`
+import { Paper } from '@mui/material'
+
+export const StyledTeaser = styled(Paper)`
   display: flex;
   flex-direction: column;
-  border: 1px solid ${({ theme }) => theme.palette?.common?.black};
-
+  border-radius: 8px;
+  overflow: hidden;
   align-items: stretch;
+  &:hover {
+    box-shadow: '0px 10px 20px rgba(0,0,0,0.2)';
+  }
 `
 
 export const StyledTeaserImageWrapper = styled.div`
@@ -22,13 +27,15 @@ export const StyledTeaserImageWrapper = styled.div`
 export const StyledTeaserImage = styled(Image).attrs({
   layout: 'fill',
 })`
+  z-index: 1;
   object-fit: cover;
 `
 
 export const StyledPlaceholderImage = styled(Image).attrs({
-  layout: 'fill',
+  width: 45,
+  height: 45,
 })`
-  object-fit: cover;
+  z-index: 0;
 `
 
 export const StyledTeaserContent = styled.div`

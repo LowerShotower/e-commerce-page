@@ -1,5 +1,4 @@
-import { useState, ChangeEvent } from 'react'
-import { useController, useForm, Control } from 'react-hook-form'
+import { useController } from 'react-hook-form'
 
 interface Props {
   options: { label: string; value: string }[]

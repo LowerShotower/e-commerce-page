@@ -5,6 +5,21 @@ export enum SortEnum {
   PriceHighToLow = 'price-high-to-low',
 }
 
+export enum FilterEnum {
+  AllBrands = 'all-brands',
+  AllSizes = 'all-sizes',
+  AllColors = 'all-colors',
+  AllPrices = 'all-prices',
+  AllRatings = 'all-ratings',
+  ByBrand = 'by-brand',
+  BySize = 'by-size',
+  ByColor = 'by-color',
+  ByPrice = 'by-price',
+  ByRating = 'by-rating',
+  BySearch = 'by-search',
+  ByPriceRange = 'by-price-range',
+}
+
 export interface Sneaker {
   id: number
   image: string
@@ -17,4 +32,11 @@ export interface Sneaker {
   colors: string[] | null
   description: string
   rating: number
+}
+
+export interface Filters {
+  colors: string[]
+  prices: number[]
+  brands: string[]
+  sizes: number[]
 }

@@ -9,7 +9,7 @@ export default class MyDocument extends Document {
       ctx.renderPage = () =>
         originalRenderPage({
           enhanceApp: (App) => (props) =>
-            sheet.collectStyles(<App {...props} />), //gets the styles from all the components inside <App>
+            sheet.collectStyles(<App {...props} />),
         })
       const initialProps = await Document.getInitialProps(ctx)
       return {
@@ -17,7 +17,6 @@ export default class MyDocument extends Document {
         styles: (
           <>
             {initialProps.styles}
-            {/*👇 insert the collected styles to the html document*/}
             {sheet.getStyleElement()}
           </>
         ),

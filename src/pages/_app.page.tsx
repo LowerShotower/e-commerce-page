@@ -4,7 +4,7 @@ import type { AppProps } from 'next/app'
 import { ReactElement, ReactNode } from 'react'
 import { ThemeProvider } from 'styled-components'
 import { defaultTheme } from '@/styles/defaultTheme'
-import { Provider } from 'react-redux'
+// import { Provider } from 'react-redux'
 import Main from '@/components/Main/Main'
 import Header from '@/components/Header/Header'
 // import { wrapper } from '@/store'
@@ -38,10 +38,8 @@ AppWithLayoutProps) {
     // <PersistGate persistor={store.__persistor} loading={null}>
     <ThemeProvider theme={defaultTheme}>
       <Main>
-        <div className="w-screen">
-          <Header className="fixed top-0 left-0 right-0 " />
-          <Component {...pageProps} />
-        </div>
+        <Header className="fixed top-0 left-0 right-0 " />
+        <Component {...pageProps} />
       </Main>
     </ThemeProvider>
     // </PersistGate>

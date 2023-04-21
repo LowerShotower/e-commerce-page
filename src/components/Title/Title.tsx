@@ -1,4 +1,4 @@
-import { type FunctionComponent, type ReactNode } from 'react'
+import { type ReactNode } from 'react'
 import { IStyledTitle, StyledTitle } from './Title.styles'
 
 interface TitleProps extends IStyledTitle {

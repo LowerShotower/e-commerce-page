@@ -2,18 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-
 @import url('https://fonts.googleapis.com/css2?family=Anuphan:wght@200;400;600;700&family=Raleway:wght@600&family=Roboto+Condensed:wght@400;700&family=Tilt+Prism&display=swap');
-
 
 body {
   padding-top: 111px;
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-    font-family: 'Anuphan', sans-serif;
+  font-family: 'Anuphan', sans-serif;
 }
