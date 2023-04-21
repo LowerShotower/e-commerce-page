@@ -69,7 +69,7 @@ const Teaser = ({
             </StyledTeaserDescriptionListItem>
             <StyledTeaserDescriptionListItem>
               <Name>Price</Name>
-              <Value>{price.usd}</Value>
+              <Value>{price.usd} $</Value>
             </StyledTeaserDescriptionListItem>
             <StyledTeaserDescriptionListItem>
               <Name>Sizes</Name>
