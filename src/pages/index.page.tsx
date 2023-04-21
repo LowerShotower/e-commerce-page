@@ -37,7 +37,7 @@ export default function Home() {
   const debouncedSearch = useCallback(
     debounce((value) => {
       setSearch(value)
-    }, 500),
+    }, 200),
     [setSearch]
   )
 
