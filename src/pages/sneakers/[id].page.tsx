@@ -9,12 +9,12 @@ interface SneakerProps {
 export default function Sneakers({ sneaker }: SneakerProps) {
   return (
     <div>
-      <h1 className="text-2xl font-[700] mb-5">Sneakers {sneaker.name}</h1>
+      <h1 className="text-2xl font-[700] mb-5">Sneakers {sneaker?.name}</h1>
       <div className="flex">
         <div className="image-wrapper grow-1 h-64 relative  aspect-video">
           <Image
-            src={sneaker.image}
-            alt={sneaker.name}
+            src={sneaker?.image}
+            alt={sneaker?.name}
             fill
             className="object-cover"
           />
@@ -22,18 +22,19 @@ export default function Sneakers({ sneaker }: SneakerProps) {
         <div className="ml-5 px-5 w-64 grow-1 shrink-0">
           <div>
             <span className="text-base font-[700]">Size:</span>{' '}
-            {sneaker.sizes.join(', ')}
+            {sneaker?.sizes.join(', ')}
           </div>
           <div>
-            <span className="text-base font-[700]">Brand:</span> {sneaker.brand}
+            <span className="text-base font-[700]">Brand:</span>{' '}
+            {sneaker?.brand}
           </div>
           <div>
             <span className="text-base font-[700]">Description:</span>{' '}
-            {sneaker.description}
+            {sneaker?.description}
           </div>
           <div>
             <span className="text-base font-[700]">Size:</span>{' '}
-            {sneaker.sizes.join(', ')}
+            {sneaker?.sizes.join(', ')}
           </div>
           <Button variant="text" className="mt-6">
             Add To Cart
@@ -51,7 +52,7 @@ export const getStaticPaths = async () => {
     }
   })
 
-  return { paths, fallback: true }
+  return { paths, fallback: false }
 }
 
 export const getStaticProps = async (context) => {
