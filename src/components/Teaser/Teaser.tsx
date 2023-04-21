@@ -36,8 +36,9 @@ const Teaser = ({
   colors,
   rating,
 }: TeaserProps) => {
-  const handleClick = () => {
-    console.log()
+  const handleClick = (e) => {
+    e.stopPropagation()
+    e.preventDefault()
   }
   return (
     <StyledTeaser className={`Teaser ${className}`} style={style}>
