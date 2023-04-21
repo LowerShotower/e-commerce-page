@@ -11,7 +11,6 @@ export const StyledHeader = styled.div`
 
 export const StyledLogo = styled.div`
   display: flex;
-
   align-items: center;
   color: ${({ theme: { palette } }) => palette?.common?.white};
   font-family: 'Tilt Prism', sans-serif;
@@ -19,6 +18,12 @@ export const StyledLogo = styled.div`
 
 export const StyledLogoText = styled.p`
   font-size: ${({ theme: { space } }) => space?.['4x']};
+  @media (max-width: ${({ theme }) => theme.sizes?.['md']}) {
+    font-size: ${({ theme: { space } }) => space?.['2x']};
+  }
+  @media (max-width: ${({ theme }) => theme.sizes?.['sm']}) {
+    display: none;
+  }
   font-weight: 500;
   line-height: 1;
   margin-left: ${({ theme: { space } }) => space?.['1x']};
