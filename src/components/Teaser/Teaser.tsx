@@ -1,4 +1,4 @@
-import { type ReactNode } from 'react'
+import { type ReactNode, MouseEvent } from 'react'
 import Rating from '@mui/material/Rating'
 import {
   Name,
@@ -36,7 +36,7 @@ const Teaser = ({
   colors,
   rating,
 }: TeaserProps) => {
-  const handleClick = (e) => {
+  const handleClick = (e: MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation()
     e.preventDefault()
   }
