@@ -1,4 +1,4 @@
-import { type ReactNode } from 'react'
+import { type ReactNode, MouseEvent } from 'react'
 import { StyledButton } from './Button.styles'
 import { ButtonVariant } from '@/types'
 
@@ -6,7 +6,7 @@ interface ButtonProps {
   children?: ReactNode
   className?: string
   style?: object
-  onClick?: () => void
+  onClick?: (e: MouseEvent<HTMLButtonElement>) => void
   variant?: ButtonVariant
 }
 
