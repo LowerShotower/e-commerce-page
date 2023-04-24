@@ -1,7 +1,7 @@
 import FilterSection from '@/components/FilterSection/FilterSection'
 import Teasers from '@/components/Teasers/Teasers'
 import Teaser from '@/components/Teaser/Teaser'
-import { FilterEnum, Sneaker, SortEnum } from '@/types'
+import { FilterEnum, Filters, Sneaker } from '@/types'
 import OrderingSection from '@/components/OrderingSection/OrderingSection'
 import SearchSection from '@/components/SearchSection/SearchSection'
 import useSWR from 'swr'
@@ -28,7 +28,7 @@ const fetcher = async (url: string) => {
 
 export default function Home() {
   const [search, setSearch] = useState<string>('')
-  const [filters, setFilters] = useState<Partial<Record<FilterEnum, any>>>({
+  const [filters, setFilters] = useState<Partial<Filters>>({
     [FilterEnum.ByPriceRange]: [0, 90],
     [FilterEnum.ByColor]: ['black', 'red', 'white', 'blue', 'gray', 'brown'],
   })
@@ -50,14 +50,19 @@ export default function Home() {
     debouncedSearch(value)
   }
 
-  const handleFilterChange = (filters) => {
-    setFilters(filters)
-  }
+  const handleFilterChange = useCallback(
+    (filters) => {
+      setFilters(filters)
+    },
+    [setFilters]
+  )
 
   const filteredProducts = data
     ?.filter(filterCheck({ [FilterEnum.BySearch]: search, ...filters }))
     .sort(sortMethod && sortFuncs[sortMethod])
+
   if (error) return <div>{error.message}</div>
+
   return (
     <>
       <SearchSection onChange={handleSearchChange} />

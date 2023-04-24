@@ -1,4 +1,4 @@
-import { type FunctionComponent, type ReactNode } from 'react'
+import { type ReactNode } from 'react'
 import { StyledCart } from './Cart.styles'
 
 interface CartProps {
@@ -7,11 +7,7 @@ interface CartProps {
   style?: object
 }
 
-const Cart = ({
-  className,
-  children,
-  style,
-}:CartProps) => {
+const Cart = ({ className, children, style }: CartProps) => {
   return (
     <StyledCart className={`Cart ${className}`} style={style}>
       {children}

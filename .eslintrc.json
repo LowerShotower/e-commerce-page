@@ -1,6 +1,5 @@
 {
   "extends": [
-    // "next/core-web-vitals",
     "eslint:recommended",
     "plugin:react/recommended",
     "plugin:react-hooks/recommended",
@@ -17,7 +16,6 @@
   },
   "settings": {
     "next": {
-      // "rootDir": "packages/my-app/"
     },
     "settings": {
       "react": {

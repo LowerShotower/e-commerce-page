@@ -42,7 +42,7 @@ const FilterSection = ({
   const watchAll = useWatch({ control })
   useEffect(() => {
     onChange?.(watchAll)
-  }, [watchAll])
+  }, [watchAll, onChange])
 
   return (
     <StyledFilterSection className={`FilterSection ${className}`} style={style}>

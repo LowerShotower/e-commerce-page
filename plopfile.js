@@ -1,6 +1,5 @@
 /* eslint-disable no-undef */
 module.exports = function (plop) {
-  // create your generators here
   plop.setGenerator('React component generator', {
     description: 'A generator for React components',
     prompts: [

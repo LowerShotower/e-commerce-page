@@ -1,10 +1,9 @@
+import { Db } from './db.d'
 import { FilterEnum } from '@/types'
 
-export default {
+const db: Db = {
   filters: {
     [FilterEnum.ByColor]: ['black', 'red', 'white', 'blue', 'gray', 'brown'],
-    // brands: ['Vans', 'Nike', 'Adidas', 'Puma', 'Reebok'],
-    // sizes: [33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44],
     [FilterEnum.ByPriceRange]: [0, 50],
   },
   sneakers: [
@@ -280,3 +279,5 @@ export default {
     },
   ],
 }
+
+export default db

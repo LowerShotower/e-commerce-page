@@ -1,17 +1,20 @@
-import { FilterEnum, Filters, SortEnum } from '@/types'
+import { Color, FilterEnum, Filters, Sneaker, SortEnum } from '@/types'
 import { intersection } from 'lodash'
 
 export const sortFuncs = {
-  [SortEnum.PopularFirst]: (a, b) => b.rating - a.rating,
-  [SortEnum.UnpopularFirst]: (a, b) => a.rating - b.rating,
-  [SortEnum.PriceLowToHigh]: (a, b) => a.price?.usd - b.price?.usd,
-  [SortEnum.PriceHighToLow]: (a, b) => {
+  [SortEnum.PopularFirst]: <T extends Sneaker>(a: T, b: T) =>
+    b.rating - a.rating,
+  [SortEnum.UnpopularFirst]: <T extends Sneaker>(a: T, b: T) =>
+    a.rating - b.rating,
+  [SortEnum.PriceLowToHigh]: <T extends Sneaker>(a: T, b: T) =>
+    a.price?.usd - b.price?.usd,
+  [SortEnum.PriceHighToLow]: <T extends Sneaker>(a: T, b: T) => {
     return b?.price.usd - a?.price.usd
   },
 }
 
 export const filterFunc = {
-  [FilterEnum.ByColor]: (sneaker, colors) =>
+  [FilterEnum.ByColor]: (sneaker: Sneaker, colors: Color[]) =>
     !!intersection(sneaker.colors, colors).length,
   [FilterEnum.ByPriceRange]: (sneaker, priceRange) => {
     const [min, max] = priceRange
@@ -24,13 +27,13 @@ export const filterFunc = {
   },
 }
 
-export const filterCheck = (filters: Partial<Filters>) => (sneaker) => {
+export const filterCheck = (filters: Filters) => (sneaker) => {
   return Object.keys(filters).every((key) => {
     switch (key) {
       case FilterEnum.ByPriceRange:
         return filterFunc[key](sneaker, filters[key])
       case FilterEnum.ByColor:
-        return filterFunc[key](sneaker, filters[key])
+        return filterFunc[key](sneaker, filters[key] || [])
       case FilterEnum.BySearch:
         return filterFunc[key](sneaker, filters[key])
       default:
