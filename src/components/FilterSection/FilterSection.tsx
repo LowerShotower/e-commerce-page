@@ -75,6 +75,7 @@ const FilterSection = ({
               const fieldValue = field.value
               return (
                 <FormControlLabel
+                  key={option.value}
                   label={option.label}
                   control={
                     <Checkbox
